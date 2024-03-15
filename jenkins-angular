@@ -1,0 +1,21 @@
+# Angular Project
+# Continous Integration & Continous Deployment
+# Declarative Pipeline
+# Maven integrated in Jenkins Dashboard v3.6.3
+
+
+pipeline{
+    agent any
+
+    tools {maven 'Maven 3.6.3'}
+
+    triggers {pollSCM '0 5 10,25 * *'}
+
+    stages{
+        stage("Git Checkout"){
+            steps{
+                git 'https://github.com/RavindraSystima/Finance-DIT-Env'
+            }
+        }
+    }
+}
