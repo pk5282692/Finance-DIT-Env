@@ -3,7 +3,7 @@ pipeline{
 
     tools {maven 'Maven 3.6.3'}
 
-    triggers {pollSCM '0 5 10,25 * *'}
+    // triggers {pollSCM '0 5 10,25 * *'}
 
     stages{
         stage("Git Checkout"){
@@ -11,7 +11,17 @@ pipeline{
                 git 'https://github.com/pk5282692/Finance-DIT-Env'
             }
         }
-        stage("Test"){
+        stage("generate"){
+            steps{
+                sh 'ng generate directive|pipe|service|class|guard|interface|enum|module'
+            }
+        }
+        stage("Build"){
+            steps{
+                sh 'ng build'
+            }
+        }
+        stage("test"){
             steps{
                 sh 'ng test'
             }
