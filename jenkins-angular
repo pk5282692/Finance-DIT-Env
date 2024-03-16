@@ -15,13 +15,13 @@ pipeline{
             steps{
                 sh 'ng generate directive|pipe|service|class|guard|interface|enum|module'
             }
-        }    
+        }    */
         stage("Build"){
             steps{
                 sh 'npm install'
                 sh 'npm run build'
             }
-        }   */
+        }   
         stage("test"){
             steps{
                 sh 'npm install'
