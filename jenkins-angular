@@ -10,12 +10,12 @@ pipeline{
             steps{
                 git 'https://github.com/pk5282692/Finance-DIT-Env'
             }
-        }   
+        }   /*
         stage("generate"){
             steps{
                 sh 'ng generate directive|pipe|service|class|guard|interface|enum|module'
             }
-        }
+        }    */
         stage("Build"){
             steps{
                 sh 'ng build'
